@@ -2,12 +2,9 @@
 
 ## crontab
 
-```
-MYTWITTER=/Users/$USER/MyTwitter
-ACTIVATE=venv/bin/activate
-
-* * * * * cd $MYTWITTER; source $ACTIVATE; python3 main.py check_follower;
-* * * * * cd $MYTWITTER; source $ACTIVATE; python3 main.py customize;
+```sh
+0 * * * * cd $HOME/MyTwitter; .venv/bin/python main.py check_follower;
+0 * * * * cd $HOME/MyTwitter; .venv/bin/python main.py customize;
 ```
 
 ## Lambda Function
@@ -35,7 +32,7 @@ ACTIVATE=venv/bin/activate
 
 To create zip file:
 
-```
+```sh
 $ zip -r function.zip src/lambda_function.py src/twitter.py
 ```
 
@@ -48,7 +45,7 @@ $ zip -r function.zip src/lambda_function.py src/twitter.py
 
 To create zip file:
 
-```
+```sh
 $ pip3 install -t ./python requests_oauthlib
 $ zip -r package.zip ./python
 ```
